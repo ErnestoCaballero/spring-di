@@ -1,5 +1,6 @@
 package com.ernesto.springdi;
 
+import com.ernesto.springdi.controllers.ConstructorInjectedController;
 import com.ernesto.springdi.controllers.MyController;
 import com.ernesto.springdi.controllers.PropertyInjectedController;
 import com.ernesto.springdi.controllers.SetterInjectedController;
@@ -27,6 +28,12 @@ public class SpringDiApplication {
 		System.out.println("------ Setter-based");
 		SetterInjectedController setterInjectedController = (SetterInjectedController) ctx.getBean("setterInjectedController");
 		System.out.println(setterInjectedController.getGreeting());
+
+		// Constructor-based dependency injection
+		System.out.println("------ Constructor-based");
+		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+		System.out.println(constructorInjectedController.getGreeting());
+
 	}
 
 }
