@@ -17,8 +17,8 @@ public class SpringDiApplication {
 
 		MyController myController = (MyController) ctx.getBean("myController");
 
-		String greeting = myController.sayHello();
-		System.out.printf("%s from SpringDiApplication.java\n", greeting);
+		System.out.println("------ Primary Bean");
+		System.out.printf("%s\n", myController.sayHello());
 
 		System.out.println("------ Property-based");
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
