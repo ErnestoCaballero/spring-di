@@ -4,7 +4,9 @@ import com.ernesto.springdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan(basePackages = {"com.ernesto.springdi", "guru.spring.pets"})
 @SpringBootApplication
 public class SpringDiApplication {
 

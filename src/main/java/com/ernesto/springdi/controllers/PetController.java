@@ -1,7 +1,6 @@
 package com.ernesto.springdi.controllers;
 
-import com.ernesto.springdi.services.PetService;
-import org.springframework.beans.factory.annotation.Qualifier;
+import guru.spring.pets.PetService;
 import org.springframework.stereotype.Controller;
 
 @Controller

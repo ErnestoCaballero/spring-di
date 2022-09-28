@@ -1,4 +1,4 @@
-package com.ernesto.springdi.services;
+package guru.spring.pets;
 
 public interface PetService {
     String getPetType();
