@@ -3,6 +3,8 @@ package com.ernesto.springdi.config;
 import com.ernesto.springdi.repositories.EnglishGreetingRepository;
 import com.ernesto.springdi.repositories.EnglishGreetingRepositoryImpl;
 import com.ernesto.springdi.services.*;
+import guru.spring.pets.PetService;
+import guru.spring.pets.PetServiceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -10,6 +12,23 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    PetServiceFactory petServiceFactory() {
+        return new PetServiceFactory();
+    }
+
+    @Profile({"cat", "default"})
+    @Bean
+    PetService catPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("cat");
+    }
+
+    @Profile("dog")
+    @Bean
+    PetService dogPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("dog");
+    }
 
     @Primary
     @Bean
