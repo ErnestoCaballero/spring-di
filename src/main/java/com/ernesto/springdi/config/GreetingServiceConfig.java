@@ -5,10 +5,7 @@ import com.ernesto.springdi.repositories.EnglishGreetingRepositoryImpl;
 import com.ernesto.springdi.services.*;
 import guru.spring.pets.PetService;
 import guru.spring.pets.PetServiceFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
 @Configuration
 public class GreetingServiceConfig {
@@ -53,7 +50,7 @@ public class GreetingServiceConfig {
         return new I18nEnglishGreetingService(englishGreetingRepository);
     }
 
-    @Bean
+    // @Bean
     ConstructorGreetingService constructorGreetingService() {
         return new ConstructorGreetingService();
     }
