@@ -55,7 +55,7 @@ public class SpringDiApplication {
 		PrototypeBean prototypeBean1 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean1.getMyScope());
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
-		System.out.println(prototypeBean2.getMyScope());g
+		System.out.println(prototypeBean2.getMyScope());
 
 
 	}
