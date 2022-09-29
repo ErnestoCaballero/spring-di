@@ -1,6 +1,8 @@
 package com.ernesto.springdi;
 
 import com.ernesto.springdi.controllers.*;
+import com.ernesto.springdi.services.PrototypeBean;
+import com.ernesto.springdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -42,6 +44,19 @@ public class SpringDiApplication {
 		System.out.println("------ Constructor-based");
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
+
+		// Bean scopes: Singleton and Prototype
+		System.out.println("------ Bean Scopes -------");
+		SingletonBean singletonBean1 = ctx.getBean(SingletonBean.class);
+		System.out.println(singletonBean1.getMyScope());
+		SingletonBean singletonBean2 = ctx.getBean(SingletonBean.class);
+		System.out.println(singletonBean2.getMyScope());
+
+		PrototypeBean prototypeBean1 = ctx.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean1.getMyScope());
+		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean2.getMyScope());g
+
 
 	}
 
