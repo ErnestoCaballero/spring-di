@@ -1,14 +1,30 @@
 package com.ernesto.springdi.config;
 
+import com.ernesto.springdi.datasource.FakeDataSource;
 import com.ernesto.springdi.repositories.EnglishGreetingRepository;
 import com.ernesto.springdi.repositories.EnglishGreetingRepositoryImpl;
 import com.ernesto.springdi.services.*;
 import guru.spring.pets.PetService;
 import guru.spring.pets.PetServiceFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
+@PropertySource("classpath:datasource.properties")
+@ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${ernesto.username}") String username,
+                                  @Value("${ernesto.password}")  String password,
+                                  @Value("${ernesto.jdbcurl}")  String jdbcurl) {
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcurl(jdbcurl);
+
+        return fakeDataSource;
+    }
 
     @Bean
     PetServiceFactory petServiceFactory() {

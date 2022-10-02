@@ -1,6 +1,7 @@
 package com.ernesto.springdi;
 
 import com.ernesto.springdi.controllers.*;
+import com.ernesto.springdi.datasource.FakeDataSource;
 import com.ernesto.springdi.services.PrototypeBean;
 import com.ernesto.springdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +11,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 //@ComponentScan(basePackages = {"com.ernesto.springdi", "guru.spring.pets"})
-@ImportResource("classpath:sfgdi-config.xml")
 @SpringBootApplication
 public class SpringDiApplication {
 
@@ -56,6 +56,11 @@ public class SpringDiApplication {
 		System.out.println(prototypeBean1.getMyScope());
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
+
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcurl());
 
 
 	}
