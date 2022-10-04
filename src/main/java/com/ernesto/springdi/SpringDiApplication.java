@@ -1,5 +1,6 @@
 package com.ernesto.springdi;
 
+import com.ernesto.springdi.config.SfgConfiguration;
 import com.ernesto.springdi.controllers.*;
 import com.ernesto.springdi.datasource.FakeDataSource;
 import com.ernesto.springdi.services.PrototypeBean;
@@ -57,10 +58,17 @@ public class SpringDiApplication {
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
 
+		System.out.println("------ FakeDataSource Example -------");
 		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcurl());
+
+		System.out.println("------ Config Props Bean -------");
+		SfgConfiguration sfgConfiguration = ctx.getBean(SfgConfiguration.class);
+		System.out.println(sfgConfiguration.getUsername());
+		System.out.println(sfgConfiguration.getPassword());
+		System.out.println(sfgConfiguration.getJdbcurl());
 
 
 	}
