@@ -20,7 +20,7 @@ public class GreetingServiceConfig {
         FakeDataSource fakeDataSource = new FakeDataSource();
         fakeDataSource.setUsername(sfgConstructorConfig.getUsername());
         fakeDataSource.setPassword(sfgConstructorConfig.getPassword());
-        fakeDataSource.setJdbcurl(sfgConstructorConfigg.getJdbcurl());
+        fakeDataSource.setJdbcurl(sfgConstructorConfig.getJdbcurl());
 
         return fakeDataSource;
     }
