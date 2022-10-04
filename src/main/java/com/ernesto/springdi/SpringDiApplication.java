@@ -1,6 +1,7 @@
 package com.ernesto.springdi;
 
 import com.ernesto.springdi.config.SfgConfiguration;
+import com.ernesto.springdi.config.SfgConstructorConfig;
 import com.ernesto.springdi.controllers.*;
 import com.ernesto.springdi.datasource.FakeDataSource;
 import com.ernesto.springdi.services.PrototypeBean;
@@ -69,6 +70,12 @@ public class SpringDiApplication {
 		System.out.println(sfgConfiguration.getUsername());
 		System.out.println(sfgConfiguration.getPassword());
 		System.out.println(sfgConfiguration.getJdbcurl());
+
+		System.out.println("------ Constructor Binding -------");
+		SfgConstructorConfig sfgConstructorConfig = ctx.getBean(SfgConstructorConfig.class);
+		System.out.println(sfgConstructorConfig.getUsername());
+		System.out.println(sfgConstructorConfig.getPassword());
+		System.out.println(sfgConstructorConfig.getJdbcurl());
 
 
 	}
